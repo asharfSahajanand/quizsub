@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7EEBHF5QN5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-7EEBHF5QN5');
+    </script>
+    <!-- Viewport meta tag to ensure proper scaling on different devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the web page -->
+    <title> vubi | Play Quiz game Learn & Gain Knowledge </title>
+    <!-- Favicon Of Site -->
+    <link rel="shortcut icon" href="/images/quiz_favicon.png" type="image/x-icon">
+    <!-- Link to Tailwind CSS for styling -->
+    <link href="/css/tailwind.min.css" rel="stylesheet">
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Link to custom CSS for additional styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- jQuery library -->
+    <script src="/js/jquery-3.6.4.min.js"></script>
+    <!-- Google AdSense script -->
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+    <script src="/js/ads.js"></script>
+</head>
+
+<body>
+    <div>
+        <div class="mobile">
+            <div class=" grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 gap-0 lg:gap-0 ">
+                <!-- Logo section -->
+                <div class="col-auto">
+                    <img src="/images/logo.png" alt="Logo" class="px-2">
+                </div>
+                <!-- Lottie animation for reward ad -->
+                <div class="flex justify-end items-center col-span-3">
+                    <div onclick="RewardAd()" id="lottie-container" class="inline-block"
+                        style="width: 40px; height: 40px;">
+                        <img src="/images/Reward.png" alt="Reward">
+                    </div>
+                </div>
+                <!-- User wallet display -->
+                <div class="user_wallet text-sm font-semibold flex justify-end items-center col-end-6 mr-3">
+                    <span class="rounded-full px-3 me-2"><strong id="total_coins"></strong> <i class="fa-solid fa-coins"
+                            style="color: #FFD43B;"></i> </span>
+                </div>
+            </div>
+            <div>
+                <!-- timer-->
+                <div class="flex justify-center">
+                    <span id="count" class="font-bold bg-gray-600 px-3 rounded-full m-2 "></span>
+                </div>
+                <div class="col flex justify-center">
+                    <div class="progress-bar-container d-flex justify-content-center">
+                        <div id="progress-bar" class="progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="fist_layer text-center p-3 mt-5">
+                <div class="row">
+
+                    <div class="col">
+                        <div id="text-sm"><span id="currentindex">1</span>/12</div>
+                        <!-- <p class="text-sm text-gray-400">Answer few questions and win coins <i class="fa-solid fa-coins"
+                                style="color: #FFD43B;"></i> 150 free!</p> -->
+                    </div>
+                    <div class="col mt-3 w-full">
+                        <div class="QA_area" id="quiz-container">
+                            <div class="hidden" id="quiz-title"></div>
+                            <div class="hidden" id="result"></div>
+                            <div class="hidden" id="totalquestion"></div>
+                            <div>
+                                <p class="font-extrabold text-left text-gray-400" id="question"></p>
+                            </div>
+                            <div class="q_options mt-2" id="answers">
+                                <div class="grid grid-rows-2 grid-flow-col gap-2 text-sm">
+                                    <!-- here's Option comes -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <div class="row">
+                        <!-- First ad slot -->
+                        <div class="ads-box mb-4" style="min-height: 250px;">
+                            <div id="ad-slot-1" class="ad-container w-full flex justify-center"></div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="w-full max-w-sm mx-auto p-4 rounded-lg backdrop-blur-md bg-gradient-to-br from-white/5 to-white/3 border border-white/10 shadow-lg text-slate-100">
+                    <!-- Header -->
+                    <div class="flex flex-col items-center gap-3 mb-4">
+                        <div>
+                            <h2 class="text-lg font-semibold leading-tight">Quiz — How to Play</h2>
+                            <p class="text-xs text-slate-300 mt-1 ">Fast, fair and fun — read the rules before you
+                                start.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-2 text-xs">
+                            <span
+                                class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-white/5 border border-white/6">⏱️
+                                <strong class="ml-1">60s</strong></span>
+                            <span
+                                class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-white/5 border border-white/6">12
+                                Qs</span>
+                            <span
+                                class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-white/5 border border-white/6">🟡
+                                <strong class="ml-1">10</strong> / correct</span>
+                        </div>
+                    </div>
+
+                    <!-- Rules list -->
+                    <div>
+                        <h3 class="text-s font-medium mb-2">Main Rules</h3>
+                        <ol class="list-decimal list-inside space-y-1 text-xs text-slate-200">
+                            <li><strong>60 seconds</strong> total to answer all <strong>12</strong> questions.</li>
+                            <li>Each question has <strong>4 options</strong>, only one correct.</li>
+                            <li><strong>10 coins</strong> for each correct answer; no negatives.</li>
+                            <li>Auto next when an answer is selected.</li>
+                            <li>Timer runs nonstop — finish before it ends.</li>
+                            <li>Can end early; score counts from answered ones.</li>
+                        </ol>
+
+                        <h3 class="text-sm font-medium mt-3 mb-1">Fair Play</h3>
+                        <ul class="list-disc list-inside space-y-1 text-xs text-slate-200">
+                            <li>No cheating or multiple accounts.</li>
+                            <li>Questions shuffled for fairness.</li>
+                            <li>Disconnected games count only answered questions.</li>
+                            <li>Ties resolved by fastest total answer time.</li>
+                        </ul>
+
+                        <h3 class="text-sm font-medium mt-3 mb-1">Tips</h3>
+                        <ul class="list-disc list-inside space-y-1 text-xs text-slate-200">
+                            <li>Answer quickly — trust your first instinct.</li>
+                            <li>Skim options; pick what stands out.</li>
+                            <li>Practice to improve speed and accuracy.</li>
+                        </ul>
+                        <p class="text-[11px] text-slate-400 mt-3 text-center">Max possible coins: <strong>120</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" name="quizdata" id="quizdata" value="<%= stringme %>">
+    <span id="score" class="text-white"></span>
+
+    <script src="/data/quizplay.js"></script>
+    <script>
+        /*      var animation = bodymovin.loadAnimation({
+                 container: document.getElementById('lottie-container'),
+                 renderer: 'svg',
+                 loop: true,
+                 autoplay: true,
+                 path: '/assets/images/reward_icon.json' // Path to your JSON animation file
+             }); */
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var progressBar = document.getElementById("progress-bar");
+            var count = document.getElementById('count');
+            var totalTime = 60; // Total duration in seconds
+            var currentTime = 0;
+            var interval = 1000; // Update interval in milliseconds
+
+            function updateProgressBar() {
+                var progress = (currentTime / totalTime) * 100;
+                progressBar.style.width = progress + "%";
+                count.innerText = currentTime
+                if (currentTime > 50) {
+                    progressBar.style.background = "red"
+                }
+                currentTime++;
+            }
+
+            // Initial run
+            updateProgressBar();
+
+            var progressInterval = setInterval(function () {
+                if (currentTime >= totalTime) {
+                    clearInterval(progressInterval);
+                } else {
+                    updateProgressBar();
+                }
+            }, interval);
+        });
+
+        let allcoins = localStorage.getItem('totalcoin');
+        document.getElementById('total_coins').innerText = allcoins
+    </script>
+
+</body>
+
+</html>

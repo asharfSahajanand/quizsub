@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7EEBHF5QN5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-7EEBHF5QN5');
+  </script>
+  <!-- Viewport meta tag to ensure proper scaling on different devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Title of the web page -->
+  <title> vubi | Play Quiz game Learn & Gain Knowledge </title>
+  <!-- Favicon Of Site -->
+  <link rel="shortcut icon" href="/images/quiz_favicon.png" type="image/x-icon">
+  <!-- Link to Tailwind CSS for styling -->
+  <link href="/css/tailwind.min.css" rel="stylesheet">
+  <!-- Link to Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Link to custom CSS for additional styles -->
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- jQuery library -->
+  <script src="/js/jquery-3.6.4.min.js"></script>
+  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+  <script src="/js/ads.js"></script>
+</head>
+
+<body>
+  <div>
+    <!-- Container for toast notifications -->
+    <div id="toast-container" class="fixed top-5 right-5 space-y-4"></div>
+
+    <!-- Popup for "Not enough coins" message -->
+    <div class="popup_model fixed flex justify-center items-center hidden" id="treasure-popup">
+      <div class="usr_reward">
+        <div class="mt-2 flex justify-end">
+          <!-- Close button for the popup -->
+          <span class="p-3 font-bold text-xl cursor-pointer mr-4" onclick="notenuoghremove()">X</span>
+        </div>
+        <div>
+          <div class="text-center">
+            <div class="col">
+              <div class="flex justify-center">
+                <!-- Image for watching an ad -->
+                <img src="/assets/images/watchad.svg" alt="" width="150">
+              </div>
+            </div>
+            <div class="col">
+              <!-- Popup message content -->
+              <h2 class="font-bold text-xl-center">Not enough coins to play</h2>
+              <h2 class="text-xl m-3 font-bold">Get Instant 100 Coins!</h2>
+              <p class="text-sm text-gray-400">Watch a simple ad and get rewarded</p>
+              <div class="mt-5">
+                <!-- Button to claim reward by watching an ad -->
+                <button class="default_btn w-96" onclick="RewardAd()">Claim</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main mobile container -->
+    <div class="mobile">
+      <!-- Header section with logo and wallet info -->
+      <div class="d-flex justify-center text-center">
+        <div class="sticky grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 gap-0 lg:gap-0">
+          <!-- Logo section -->
+          <div class="col-auto">
+            <img src="/images/logo.png" alt="Logo" class="px-2">
+          </div>
+          <!-- Lottie animation for reward ad -->
+          <div class="flex justify-end items-center col-span-3">
+            <div onclick="RewardAd()" id="lottie-container" class="inline-block" style="width: 40px; height: 40px;">
+              <img src="/images/Reward.png" alt="Reward">
+            </div>
+          </div>
+          <!-- User wallet display -->
+          <div class="user_wallet text-sm font-semibold flex justify-end items-center col-end-6 mr-3">
+            <span class="rounded-full px-3 me-2"><strong id="total_coins"></strong> <i class="fa-solid fa-coins"
+                style="color: #FFD43B;"></i> </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main content section -->
+      <div class="fist_layer text-center p-3 mt-3">
+        <div class="row">
+          <div class="col mt-10">
+            <!-- Quiz details and play button -->
+            <div class="ft_area p-3">
+              <img alt="" id="cat_img" class="m-auto p-1" width="60" style="filter: drop-shadow(5px 4px 3px black);">
+              <h4 class="font-bold" id="sub_cat">English-Hindi-Translation</h4>
+              <div class="font-bold text mb-3">Play & Win <i class="fa-solid fa-coins" style="color: #FFD43B;"></i>
+                10000 Coins</div>
+              <button class="default_btn" id="play_btn">Play Now</button>
+
+              <!-- Quiz rules -->
+              <div class="QA_rules">
+                <ul class="mt-1 p-3 text-gray-400 text-sm font-bold">
+                  <li>You've got 60 seconds to answer all questions</li>
+                  <li>To answer every question you have 5 seconds each</li>
+                  <li>For every correct answer you will get +100 Coins</li>
+                  <li>Answer as many questions as you can</li>
+                  <li>Play quizzes, win coins, and gain knowledge!</li>
+                </ul>
+              </div>
+            </div>
+            <!-- First ad slot -->
+            <div class="ads-box mb-4" style="min-height: 250px !important; display: block !important;">
+              <div id="ad-slot-1" class="ad-container w-full flex justify-center"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bottom navigation bar -->
+    <div class="sticky bottom-0">
+      <div class="m-auto  left-0 z-50 w-full h-16 bg-dark dark:border-gray-600 bottom_bar"
+        style="background-color: #454545; border-radius: 14px 14px 0 0; box-shadow: #1a1a1a 0px -10px 10px;">
+        <div class="grid h-full max-w-lg grid-cols-3 mx-auto">
+          <!-- Category button -->
+          <button type="button" onclick="window.location.href='/category.html'"
+            class="inline-flex flex-col items-center justify-center font-medium px-5  dark:hover:bg-gray-800 group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2">
+              <path
+                d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <span class="text-sm">Category</span>
+          </button>
+          <!-- Home button -->
+          <button type="button" onclick="window.location.href='/home.html'"
+            class="inline-flex flex-col items-center justify-center font-medium px-5 group"
+            style="background-color: #454545; border-radius: 14px 14px 0 0; box-shadow: #1a1a1a  0px 0px 19px">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="#ffff" stroke="#ffff"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M10.7069 2.29303C10.5194 2.10556 10.2651 2.00024 9.99992 2.00024C9.73475 2.00024 9.48045 2.10556 9.29292 2.29303L2.29292 9.29303C2.11076 9.48163 2.00997 9.73423 2.01224 9.99643C2.01452 10.2586 2.11969 10.5094 2.3051 10.6948C2.49051 10.8803 2.74132 10.9854 3.00352 10.9877C3.26571 10.99 3.51832 10.8892 3.70692 10.707L3.99992 10.414V17C3.99992 17.2652 4.10528 17.5196 4.29281 17.7071C4.48035 17.8947 4.7347 18 4.99992 18H6.99992C7.26514 18 7.51949 17.8947 7.70703 17.7071C7.89456 17.5196 7.99992 17.2652 7.99992 17V15C7.99992 14.7348 8.10528 14.4805 8.29281 14.2929C8.48035 14.1054 8.7347 14 8.99992 14H10.9999C11.2651 14 11.5195 14.1054 11.707 14.2929C11.8946 14.4805 11.9999 14.7348 11.9999 15V17C11.9999 17.2652 12.1053 17.5196 12.2928 17.7071C12.4803 17.8947 12.7347 18 12.9999 18H14.9999C15.2651 18 15.5195 17.8947 15.707 17.7071C15.8946 17.5196 15.9999 17.2652 15.9999 17V10.414L16.2929 10.707C16.4815 10.8892 16.7341 10.99 16.9963 10.9877C17.2585 10.9854 17.5093 10.8803 17.6947 10.6948C17.8801 10.5094 17.9853 10.2586 17.9876 9.99643C17.9899 9.73423 17.8891 9.48163 17.7069 9.29303L10.7069 2.29303Z"
+                fill="#ffff" />
+            </svg>
+            <span class="text-sm">Home</span>
+          </button>
+          <!-- Profile button -->
+          <button type="button" onclick="window.location.href='/profile.html'"
+            class="inline-flex flex-col items-center justify-center font-medium px-5  dark:hover:bg-gray-800 group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2">
+              <path
+                d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <span class="text-sm">Profile</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function showToast(e) {
+      // Create the toast element
+      const toast = document.createElement('div');
+      toast.className = 'max-w-xs  border border-gray-200 p-4 rounded shadow-lg flex items-center space-x-4';
+      toast.innerHTML = `
+            <div class="flex-shrink-0">
+              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7 12l5 5L21 7" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-sm font-semibold">${e.title}</p>
+              <p class="text-sm">${e.msg}</p>
+            </div>
+          `;
+      // Append the toast to the container
+      document.getElementById('toast-container').appendChild(toast);
+      // Automatically remove the toast after 3 seconds
+      setTimeout(() => {
+        toast.remove();
+      }, 3000);
+    }
+
+
+    function RewardAd() {
+      if (!window.googletag || !googletag.cmd || !googletag.enums) {
+        console.error("Google Ad Manager is not properly initialized.");
+        showToast({
+          title: "Error",
+          msg: "Ad system not ready. Please try again.",
+        });
+        return;
+      }
+
+      googletag.cmd.push(function () {
+        try {
+          if (
+            !googletag.enums.OutOfPageFormat ||
+            !googletag.enums.OutOfPageFormat.REWARDED
+          ) {
+            console.error("Rewarded ad format not supported");
+            showToast({
+              title: "Error",
+              msg: "Rewarded ads not supported on this device.",
+            });
+            return;
+          }
+
+          const rewardedSlot = googletag
+            .defineOutOfPageSlot(
+              "/23128577529/vubi_reward",
+              googletag.enums.OutOfPageFormat.REWARDED
+            )
+            .addService(googletag.pubads());
+
+          if (!rewardedSlot) {
+            console.error("Failed to create finance rewarded ad slot");
+            showToast({ title: "Error", msg: "Failed to create reward ad." });
+            return;
+          }
+
+          googletag.display(rewardedSlot);
+          console.log("Attempting to display finance rewarded ad...");
+
+          const timeoutId = setTimeout(() => {
+            console.log("Finance rewarded ad timeout");
+            showToast({
+              title: "Timeout",
+              msg: "Ad took too long to load. Please try again.",
+            });
+            googletag.destroySlots([rewardedSlot]);
+          }, 10000);
+
+          googletag.pubads().addEventListener("rewardedSlotReady", function (evt) {
+            console.log("Finance rewarded ad ready.");
+            clearTimeout(timeoutId);
+            evt.makeRewardedVisible();
+            treasurepopremove();
+          });
+
+          googletag.pubads().addEventListener("rewardedSlotClosed", function () {
+            console.log("Finance rewarded ad closed.");
+            clearTimeout(timeoutId);
+            googletag.destroySlots([rewardedSlot]);
+            showToast({
+              title: "Reward Earned!",
+              msg: "100 coins added to your account!",
+            });
+          });
+
+          googletag.pubads().addEventListener("rewardedSlotGranted", function () {
+            console.log("Finance reward granted.");
+            showToast({
+              title: "Success!",
+              msg: "Reward will be credited shortly.",
+            });
+          });
+        } catch (error) {
+          console.error("Error during finance rewarded ad setup:", error);
+          showToast({
+            title: "Error",
+            msg: "Failed to load rewarded ad: " + error.message,
+          });
+        }
+      });
+    }
+
+  </script>
+  <script src="/data/quezentry.js"></script>
+  <script>
+    let allcoins = localStorage.getItem('totalcoin');
+    document.getElementById('total_coins').innerText = allcoins
+  </script>
+</body>
+
+</html>
