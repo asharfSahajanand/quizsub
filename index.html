@@ -134,11 +134,6 @@
   <script src="/js/footer.js"></script>
   <script>
     function RewardAd2() {
-      if (!window.googletag || !googletag.cmd || !googletag.enums) {
-        console.error("GAM not initialized");
-        return;
-      }
-
       googletag.cmd.push(function () {
         try {
           if (!googletag.enums.OutOfPageFormat?.REWARDED) {
