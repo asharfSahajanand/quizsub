@@ -82,7 +82,7 @@ function RewardAdforpopup() {
 
       const rewardedSlot = googletag
         .defineOutOfPageSlot(
-          "/23128577529/vubi_reward",
+          "/23303478590/vubi.online_reward",
           googletag.enums.OutOfPageFormat.REWARDED
         )
         .addService(googletag.pubads());
