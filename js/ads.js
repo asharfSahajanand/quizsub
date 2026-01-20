@@ -49,7 +49,7 @@
 
             // Define ad slots with proper sizes
             adSlot1 = googletag.defineSlot(
-              '/23303478590/d1',
+              '/23330730517/Quizniva.com_d1',
               [[300, 250], [320, 300], [250, 250], [300, 280], [300, 100]],
               'ad-slot-1'
             );
@@ -59,7 +59,7 @@
             }
 
             adSlot2 = googletag.defineSlot(
-              '/23303478590/d2',
+              '/23330730517/Quizniva.com_d2',
               [[300, 250], [320, 300], [250, 250], [300, 280], [300, 100]],
               'ad-slot-2'
             );
@@ -70,7 +70,7 @@
 
             // Define ad slot 3
             adSlot3 = googletag.defineSlot(
-              '/23303478590/d3',
+              '/23330730517/Quizniva.com_d3',
               [[300, 250], [320, 300], [250, 250], [300, 280], [300, 100]],
               'ad-slot-3'
             );

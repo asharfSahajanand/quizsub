@@ -4,14 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7EEBHF5QN5"></script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-7EEBHF5QN5"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-7EEBHF5QN5');
-  </script>
+  </script> --> 
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>vubi | Play Quiz game Learn & Gain Knowledge</title>
   <link rel="shortcut icon" href="/images/quiz_favicon.png" type="image/x-icon">
@@ -22,6 +23,44 @@
   <link rel="preconnect" href="https://googleads.g.doubleclick.net">
   <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
   <script src="/js/ads.js"></script>
+
+  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
+    <script>
+        window.googletag = window.googletag || { cmd: [] };
+        let interstitialSlot;
+
+        googletag.cmd.push(() => {
+            // ✅ Define interstitial slot
+            interstitialSlot = googletag.defineOutOfPageSlot(
+                '/23330730517/quizniva.com_inter',
+                googletag.enums.OutOfPageFormat.INTERSTITIAL
+            );
+
+            if (interstitialSlot) {
+                interstitialSlot.addService(googletag.pubads());
+            }
+
+            googletag.enableServices();
+
+            // ✅ Preload the interstitial ad immediately after page load
+            if (interstitialSlot) {
+                googletag.display(interstitialSlot);
+            }
+        });
+
+        // ✅ Function to show interstitial and then call callback
+        function showInterstitialAd(callback) {
+            googletag.cmd.push(() => {
+                if (interstitialSlot) {
+                    googletag.pubads().display(interstitialSlot);
+                }
+                // ⏳ Fast fallback: max wait 500ms
+                setTimeout(() => {
+                    if (typeof callback === 'function') callback();
+                }, 500);
+            });
+        }
+    </script>
 </head>
 
 <body>
