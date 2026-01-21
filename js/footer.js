@@ -73,7 +73,7 @@ function RewardAdforpopup() {
 
       const rewardedSlot = googletag
         .defineOutOfPageSlot(
-          "/23303478590/vubi.online_reward",
+          "/23330730517/Quizniva.com_d1",
           googletag.enums.OutOfPageFormat.REWARDED
         )
         .addService(googletag.pubads());
