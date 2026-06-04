@@ -70,7 +70,7 @@ function showQuestion() {
   // Show interstitial ad only at specific question indexes to avoid excessive ads
   if (currentQuestionIndex === 1) {
     // Uncomment to enable interstitial ads at specific points
-    RewardAd();
+   // RewardAd();
   }
 
   // Split answers and shuffle them
