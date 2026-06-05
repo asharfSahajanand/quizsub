@@ -244,6 +244,9 @@ function showRewardAd() {
 
     googletag.pubads().addEventListener('rewardedSlotClosed', () => {
       googletag.destroySlots([rewardedSlot]);
+      document.getElementById('treasure-popup').classList.add('hidden');
+  window.location.href = '/playquiz.html';
+
     });
 
     googletag.display(rewardedSlot);
