@@ -71,7 +71,7 @@ function showQuestion() {
   if (currentQuestionIndex === 1) {
     // Uncomment to enable interstitial ads at specific points
    // RewardAd();
-    treasureopen(); 
+   // treasureopen(); 
   }
 
   // Split answers and shuffle them
